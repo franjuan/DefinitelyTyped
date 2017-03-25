@@ -4,31 +4,32 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 import * as moment from 'moment';
+import {Moment} from 'moment';
 
 export = moment;
 
 declare module 'moment' {
     class DateRange implements Range {
-        start: moment.Moment;
-        end: moment.Moment;
+        start: Moment;
+        end: Moment;
 
-        constructor(range: string | Date[] | moment.Moment[]);
-        constructor(start: Date | moment.Moment, end: Date | moment.Moment);
+        constructor(range: string | Date[] | Moment[]);
+        constructor(start: Date | Moment, end: Date | Moment);
 
 
-        contains(other: DateRange | moment.Moment | Date, options?: { exclusive?: boolean }): boolean;
+        contains(other: DateRange | Moment | Date, options?: { exclusive?: boolean }): boolean;
 
         overlaps(range: DateRange, options?: { adjacent?: boolean }): boolean;
 
-        intersect(other: DateRange): DateRange;
+        intersect(other: DateRange, options?: { adjacent?: boolean }): DateRange;
 
         add(other: DateRange): DateRange;
 
         subtract(other: DateRange): DateRange[];
 
-        by(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        by(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
 
-        byRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        byRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
 
         isSame(other: DateRange): boolean;
 
@@ -40,7 +41,7 @@ declare module 'moment' {
 
         valueOf(): number;
 
-        center(): moment.Moment;
+        center(): Moment;
 
         clone(): DateRange;
 
@@ -50,28 +51,28 @@ declare module 'moment' {
 
         duration(unit?: moment.unitOfTime.Diff, precise?: boolean): number;
 
-        reverseBy(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        reverseBy(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
 
-        reverseByRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        reverseByRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
     }
 
     interface Range {
-        start: moment.Moment;
-        end: moment.Moment;
+        start: Moment;
+        end: Moment;
 
-        contains(other: DateRange | moment.Moment | Date, options?: { exclusive?: boolean }): boolean;
+        contains(other: DateRange | Moment | Date, options?: { exclusive?: boolean }): boolean;
 
         overlaps(range: DateRange, options?: { adjacent?: boolean }): boolean;
 
-        intersect(other: DateRange): DateRange;
+        intersect(other: DateRange, options?: { adjacent?: boolean }): DateRange;
 
         add(other: DateRange): DateRange;
 
         subtract(other: DateRange): DateRange[];
 
-        by(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        by(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
 
-        byRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        byRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
 
         isSame(other: DateRange): boolean;
 
@@ -83,7 +84,7 @@ declare module 'moment' {
 
         valueOf(): number;
 
-        center(): moment.Moment;
+        center(): Moment;
 
         clone(): DateRange;
 
@@ -93,14 +94,14 @@ declare module 'moment' {
 
         duration(unit?: moment.unitOfTime.Diff, precise?: boolean): number;
 
-        reverseBy(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        reverseBy(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
 
-        reverseByRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+        reverseByRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<Moment>;
 
     }
 
     function extendMoment(moment: any): any;
 
-    function range(range: string | Date[] | moment.Moment[]): moment.Range;
-    function range(start: Date | moment.Moment, end: Date | moment.Moment): moment.Range;
+    function range(range: string | Date[] | Moment[]): moment.Range;
+    function range(start: Date | Moment, end: Date | Moment): moment.Range;
 }

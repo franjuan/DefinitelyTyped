@@ -35,6 +35,8 @@ var res14: number = range.duration('days');
 var res15: number = range.duration();
 
 var res16: momentRange.DateRange = range.intersect(range2);
+var res16bis: momentRange.DateRange = range.intersect(range2, {adjacent: true});
+var res16nos2: momentRange.DateRange = range.intersect(range2, {adjacent: false});
 
 var res17: boolean = range.isSame(range2);
 
